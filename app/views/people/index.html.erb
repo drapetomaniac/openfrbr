@@ -1,0 +1,17 @@
+<% @pagetitle = "People" %>
+
+<h1>People</h1>
+
+<% for person in @people %>
+
+<div class="indexlist">
+
+<h2><%= link_to person.anchor_text, person %></h2>
+
+<%= render(:partial => 'attributes', :object => person) %>
+
+</div>
+
+<% end %>
+
+<%= link_to 'New person', new_person_path %>

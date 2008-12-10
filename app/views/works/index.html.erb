@@ -1,0 +1,21 @@
+<% @pagetitle = "Works" %>
+
+<h1>Works</h1>
+
+
+<% for work in @works %>
+
+<ul>
+
+<li> <%= link_to work.anchor_text, work %>
+<br />
+Created by: <%= render(:partial => 'layouts/group2entitylist', 
+  :object => work.creators) %>
+<% # render(:partial => 'attributes', :object => work) %>
+</li>
+
+</ul>
+
+<% end %>
+
+<%= link_to 'New work', new_work_path %>

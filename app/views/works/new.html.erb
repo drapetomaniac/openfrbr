@@ -1,0 +1,36 @@
+<% @pagetitle = "Add a new work" %>
+
+<h1>Add a new work</h1>
+
+<% form_for(@work) do |f| %>
+
+<%= f.error_messages %>
+
+<p>
+
+Creator:
+<%= render(:partial => 'layouts/group2_entity_pick') %>
+
+</p>
+
+<%= render(:partial => 'form', :object => f) %>
+
+<p>
+
+TODO: Connect with a related work, and specify the relation.
+
+</p>
+
+<p>
+
+TODO: Add subjects.
+
+</p>
+
+<p>
+<%= f.submit "Create" %>
+</p>
+
+<% end %>
+
+<%= link_to 'Back', works_path %>

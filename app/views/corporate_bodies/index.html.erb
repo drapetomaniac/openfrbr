@@ -1,0 +1,12 @@
+<% @pagetitle = "Corporate bodies" %>
+
+<h1>Corporate Bodies</h1>
+
+<% for corp in @corporate_bodies %>
+<h2><%= link_to corp.anchor_text, corp %></h2>
+
+<%= render(:partial => 'attributes', :object => corp) %>
+
+<% end %>
+
+<%= link_to 'New corporate body', new_corporate_body_path %>

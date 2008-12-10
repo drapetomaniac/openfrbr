@@ -1,0 +1,13 @@
+<% @pagetitle = "Families" %>
+
+<h1>Families</h1>
+
+<% for family in @families %>
+
+<h2><%= link_to family.name, family %></h2>
+
+<%= render(:partial => 'attributes', :object => family) %>
+
+<% end %>
+
+<%= link_to 'New family', new_family_path %>

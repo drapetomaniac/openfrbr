@@ -1,0 +1,14 @@
+<% @pagetitle = "Concepts" %>
+
+<h1>Concepts</h1>
+
+<ul>
+
+<% for concept in @concepts %>
+<li> <%= link_to concept.anchor_text, concept %> 
+</li>
+<% end %>
+
+</ul>
+
+<%= link_to 'Add a concept', new_concept_path %>

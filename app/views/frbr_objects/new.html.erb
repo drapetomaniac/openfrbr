@@ -1,0 +1,15 @@
+<% @pagetitle = "Add a new object" %>
+
+<h1>Add a new object</h1>
+
+<% form_for(@frbr_object) do |f| %>
+<%= f.error_messages %>
+
+<%= render(:partial => 'form', :object => f) %>
+
+<p>
+<%= f.submit "Create" %>
+</p>
+<% end %>
+
+<%= link_to 'Back', frbr_objects_path %>

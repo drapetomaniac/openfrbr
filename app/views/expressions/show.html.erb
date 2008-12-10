@@ -1,0 +1,68 @@
+<% @pagetitle = "Expression:" + @expression.anchor_text %>
+
+<p>
+
+Work: <%= link_to "#{@expression.work.anchor_text}",  @expression.work %>
+
+</p>
+
+<% @reification = @expression.reifications[0] %>
+
+<% form_for @reification do |f| %>
+<%= f.error_messages %>
+
+<%= hidden_field_tag "expression_id", @expression.id %>
+<%= hidden_field_tag "relation", @reification.relation %>
+
+<%= submit_tag "Reassign to" %>
+
+<%= select_tag "work_id", 
+Work.all.sort.collect { |w| "<option value=\"#{w.id}\">#{w.anchor_text}</option>" }.to_s
+%>
+
+<% end %>
+
+<hr />
+
+<h1>Expression: <%= @expression.anchor_text %></h1>
+
+<p>
+
+<%= link_to 'Edit', edit_expression_path(@expression) %> 
+|
+<%= link_to 'Delete', @expression, :confirm => 'Are you sure?', :method => :delete %>
+
+</p>
+
+<h2>Realizers</h2>
+
+<%= render(:partial => 'layouts/group2entitylist', 
+  :object => @expression.realizers) %>
+
+<p>
+
+Attributes
+
+</p>
+
+<%= render(:partial => 'attributes', :object => @expression) %>
+
+<h2>Manifestations</h2>
+
+<p>
+
+<%= link_to "Add manifestation for this expression", 
+    new_manifestation_path(:expression_id => @expression.id) %>
+
+</p>
+
+<ul>
+
+<% @expression.manifestations.each do |m| %>
+
+<li> <%= link_to m.anchor_text, m %>
+</li>
+
+<% end %>
+
+</ul>

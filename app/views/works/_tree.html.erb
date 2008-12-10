@@ -1,0 +1,36 @@
+<ul>
+
+<% @work.reifications.each do |r| %>
+<% e=Expression.find(r.expression_id) %>
+
+<li> <%= link_to e.title, e %> 
+(<%= e.language %>, <%= e.form %>)
+
+<ul> <% e.manifestations.each do |m| %>
+
+<li> <%= link_to m.title, m %>
+(<%= m.form_of_carrier %>, <%= m.identifier %>)
+
+<ul>
+
+<% m.items.each do |i| %>
+
+<li> <%= link_to i.identifier, i %>
+(<%= i.call_number %>)
+</li>
+
+<% end %>
+
+</ul>
+
+</li>
+
+<% end %>
+
+</ul>
+
+</li>
+
+<% end %>
+
+</ul>

@@ -1,0 +1,15 @@
+<% @pagetitle = "Events" %>
+
+<h1>Events</h1>
+
+<ul>
+
+<% for event in @events %>
+<li> <%= link_to event.anchor_text, event %> 
+</li>
+<% end %>
+
+</ul>
+
+<%= link_to 'Add an event', new_event_path %>
+

@@ -1,0 +1,61 @@
+<% @pagetitle = "Manifestation: " + @manifestation.anchor_text %>
+
+<p>
+
+Work: 
+
+<%= link_to "#{@manifestation.expression.work.anchor_text}", 
+@manifestation.expression.work %>
+                 
+</p>
+
+<p>
+ 
+Expression: 
+<%= link_to "#{@manifestation.expression.anchor_text}" ,
+    @manifestation.expression %>
+
+</p>
+
+<h1>Manifestation: <%= @manifestation.anchor_text %></h1>
+
+<p>
+
+<%= link_to 'Edit', edit_manifestation_path(@manifestation) %> 
+|
+<%= link_to 'Delete', @manifestation, :confirm => 'Are you sure?', :method => :delete %>
+
+</p>
+
+<h2>Producers</h2>
+
+<%= render(:partial => 'layouts/group2entitylist', 
+  :object => @manifestation.producers) %>
+
+<p>
+
+Attributes
+
+</p>
+
+<%= render(:partial => 'attributes', :object => @manifestation) %>
+
+<h2>Items</h2>
+
+<p>
+
+<%= link_to "Add item for this manifestation", 
+    new_item_path(:manifestation_id => @manifestation.id) %>
+
+</p>
+
+<ul>
+
+<% @manifestation.items.each do |i| %>
+
+<li> <%= link_to i.anchor_text, i %>
+</li>
+
+<% end %>
+
+</ul>

@@ -1,0 +1,33 @@
+<% @pagetitle = "Event: " + @event.anchor_text %>
+
+<h1>Event: <%= @event.anchor_text %></h1>
+
+<%= link_to 'Edit', edit_event_path(@event) %>
+
+<ul>
+
+<li> Date: <%= @event.date %>
+</li>
+
+<li> Comment: <%= @event.comment %>
+</li>
+
+</ul>
+
+<p>
+
+Works:
+
+</p>
+
+<ul>
+
+<% @event.works.each do |w| %>
+
+<li> <%= link_to w.anchor_text, w %>
+</li>
+
+<% end %>
+
+</ul>
+

@@ -1,0 +1,39 @@
+one:
+  id: 1
+  title: Harry Potter and the Philosopher's Stone
+  form: text
+  date: 1997
+  language: English
+  comment:
+
+two:
+  id: 2
+  title: Harry Potter and the Chamber of Secrets
+  form: text
+  date: 1998
+  language: English
+  comment:
+
+three:
+  id: 3
+  title: Harry Potter and the Prisoner of Azkaban
+  form: text
+  date: 1999
+  language: English
+  comment:
+
+PhilosopherAudiobookExpression:
+  id: 4
+  title: Harry Potter and the Philosopher's Stone
+  form: audio
+  date:
+  language: English
+  comment:
+
+Abridgment:
+  id: 5
+  title: Reader's Digest version of first three books
+  form: text
+  date: 2000
+  language: English
+  comment: Test for one expression with many works.

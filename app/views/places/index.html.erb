@@ -1,0 +1,15 @@
+<% @pagetitle = "Places" %>
+
+<h1>Places</h1>
+
+<ul>
+
+<% for place in @places %>
+<li> <%= link_to place.anchor_text, place %> 
+</li>
+<% end %>
+
+</ul>
+
+<%= link_to 'Add a place', new_place_path %>
+

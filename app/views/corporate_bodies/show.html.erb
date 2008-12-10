@@ -1,0 +1,16 @@
+<% @pagetitle = "Corporate body: " + @corporate_body.anchor_text %>
+
+<h1>Corporate body: <%= @corporate_body.anchor_text %></h1>
+
+<%= link_to 'Edit', edit_corporate_body_path(@corporate_body) %>
+
+<p>
+
+Attributes
+
+</p>
+
+<%= render(:partial => 'attributes', :object => @corporate_body) %>
+
+<%= render(:partial => 'layouts/group_ones', :object => @corporate_body) %>
+

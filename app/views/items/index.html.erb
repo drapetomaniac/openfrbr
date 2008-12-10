@@ -1,0 +1,26 @@
+<% @pagetitle = "Items" %>
+
+<h1>Items</h1>
+
+<% for item in @items %>
+
+<div class="indexlist">
+
+<h1><%= link_to item.manifestation.title, item %> (<%= item.identifier %>)</h1>
+
+<p>
+
+Owned by:
+
+</p>
+
+<%= render(:partial => 'layouts/group2entitylist', 
+  :object => item.owners) %>
+
+<%= render(:partial => 'attributes', :object => item) %>
+
+</div>
+
+<% end %>
+
+<%= link_to 'New item', new_item_path %>

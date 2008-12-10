@@ -1,0 +1,103 @@
+<% @pagetitle = "Work: " + @work.anchor_text %>
+
+<h1>Work: <%= @work.anchor_text %></h1>
+
+<p>
+
+<%= link_to 'Edit', edit_work_path(@work) %> 
+|
+<%= link_to 'Delete', @work, :confirm => 'Are you sure?', :method => :delete %>
+
+</p>
+
+<h2>Creators</h2>
+
+<%= render(:partial => 'layouts/group2entitylist', 
+  :object => @work.creators) %>
+
+<p>
+
+Attributes:
+
+</p>
+
+<%= render(:partial => 'attributes', :object => @work) %>
+
+<h2>Tree</h2>
+
+<p>
+
+<%= render(:partial => 'tree', :object => @work) %>
+
+</p>
+
+
+<h2>Expressions</h2>
+
+<p>
+
+<%= link_to "Add expression for this work", 
+    new_expression_path(:work_id => @work.id) %>
+
+</p>
+
+<ul>
+
+<% @work.reifications.each do |r| %>
+<% e=Expression.find(r.expression_id) %>
+
+<li> <%= link_to e.anchor_text, e %> (<%= r.relation %>)
+</li>
+
+<% end %>
+
+</ul>
+
+<h2>Subjects</h2>
+
+<div id="subject_form">
+
+<% form_remote_tag :url => work_subjects_path(@work) do %>
+
+<%= submit_tag "Add" %>
+
+<%= text_field_tag "subject_term" %>
+
+<%= select_tag "subject_type",
+'<option>Work</option>
+<option>Expression</option>
+<option>Manifestation</option>
+<option>Item</option>
+<option>Person</option>
+<option>Family</option>
+<option>CorporateBody</option>
+<option selected="selected">Concept</option>
+<option>Event</option>
+<option>FrbrObject</option>
+<option>Place</option>'
+ %>
+
+<% end %>
+
+</div>
+
+<p>
+
+TODO: Add Ajax 'remove' link to each subject to disconnect.
+
+</p>
+
+<ul id="subjects">
+
+<% if @work.subjects.empty? %>
+
+<li> This work has no subjects. </li>
+
+<% else %>
+
+<%= render :partial => 'subjects/subjects', 
+  :collection => @work.subjects %>
+
+<% end %>
+
+</ul>

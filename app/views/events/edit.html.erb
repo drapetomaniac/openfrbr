@@ -1,0 +1,21 @@
+<% @pagetitle = "Edit Event: " + @event.term %>
+
+<h1>Edit event: <%= @event.term %></h1>
+
+<p>
+
+<%= link_to 'Delete', @event, :confirm => 'Are you sure?', :method => :delete %>
+
+</p>
+
+<% form_for(@event) do |f| %>
+<%= f.error_messages %>
+
+<%= render(:partial => 'form', :object => f) %>
+
+<p>
+<%= f.submit "Update" %>
+</p>
+<% end %>
+
+<%= link_to 'Show', @event %>

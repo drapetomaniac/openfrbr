@@ -1,0 +1,22 @@
+<% @pagetitle = "Edit Item: " + @item.identifier %>
+
+<h1>Edit item: <%= @item.identifier %></h1>
+
+<p>
+
+<%= link_to 'Delete', @item, :confirm => 'Are you sure?', :method => :delete %>
+
+</p>
+
+<% form_for(@item) do |f| %>
+<%= f.error_messages %>
+
+<%= render(:partial => 'form', :object => f) %>
+
+<p>
+<%= f.submit "Update" %>
+</p>
+<% end %>
+
+
+<%= link_to 'Show', @item %>

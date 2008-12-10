@@ -1,0 +1,35 @@
+<% @pagetitle = "Add a new expression" %>
+
+<h1>Add a new expression</h1>
+
+<p>
+
+Adding a new expression to the work <%= link_to Work.find(params[:work_id]).anchor_text, Work.find(params[:work_id]) %>
+
+</p>
+
+<% form_for(@expression) do |f| %>
+<%= f.error_messages %>
+
+<p>
+
+Realizer:
+
+<%= render(:partial => 'layouts/group2_entity_pick') %>
+
+</p>
+
+<p>
+
+Relation: <%= text_field_tag "realization" %>
+
+</p>
+
+<%= render(:partial => 'form', :object => f) %>
+
+<%= hidden_field_tag ('work_id', params[:work_id]) %>
+
+<p>
+<%= f.submit "Create" %>
+</p>
+<% end %>

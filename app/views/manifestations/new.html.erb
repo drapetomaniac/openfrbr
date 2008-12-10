@@ -1,0 +1,35 @@
+<% @pagetitle = "Add a new manifestation" %>
+
+<h1>Add a manifestation</h1>
+
+<% e = Expression.find(params[:expression_id]) %>
+
+<p>
+
+Work:
+<%= link_to e.work.anchor_text, e.work %>
+<br />
+Expression: <%= link_to e.anchor_text, e %>
+
+</p>
+
+
+<% form_for(@manifestation) do |f| %>
+<%= f.error_messages %>
+
+<p>
+
+Producer:
+
+<%= render(:partial => 'layouts/group2_entity_pick') %>
+
+</p>
+
+<%= render(:partial => 'form', :object => f) %>
+
+<%= hidden_field (:manifestation, :expression_id, :value => params[:expression_id]) %>
+
+<p>
+<%= f.submit "Create" %>
+</p>
+<% end %>

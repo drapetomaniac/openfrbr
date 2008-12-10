@@ -1,0 +1,14 @@
+one:
+  id: 1
+  term: wand
+  comment:
+
+two:
+  id: 2
+  term: Sorting Hat
+  comment:
+
+three:
+  id: 3
+  term: butterbeer
+  comment:

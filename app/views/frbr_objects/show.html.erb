@@ -1,0 +1,30 @@
+<% @pagetitle = "Object: " + @frbr_object.anchor_text %>
+
+<h1>Object: <%= @frbr_object.anchor_text %></h1>
+
+<%= link_to 'Edit', edit_frbr_object_path(@frbr_object) %>
+
+<ul>
+
+<li> Comment: <%= @frbr_object.comment %>
+</li>
+
+</ul>
+
+<p>
+
+Works:
+
+</p>
+
+<ul>
+
+<% @frbr_object.works.each do |w| %>
+
+<li> <%= link_to w.anchor_text, w %>
+</li>
+
+<% end %>
+
+</ul>
+

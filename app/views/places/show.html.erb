@@ -1,0 +1,30 @@
+<% @pagetitle = "Place: " + @place.anchor_text %>
+
+<h1>Place: <%= @place.anchor_text %></h1>
+
+<%= link_to 'Edit', edit_place_path(@place) %>
+
+<ul>
+
+<li> Comment: <%= @place.comment %>
+</li>
+
+</ul>
+
+<p>
+
+Works:
+
+</p>
+
+<ul>
+
+<% @place.works.each do |w| %>
+
+<li> <%= link_to w.anchor_text, w %>
+</li>
+
+<% end %>
+
+</ul>
+

@@ -1,0 +1,30 @@
+<% @pagetitle = "Concept: " + @concept.anchor_text %>
+
+<h1>Concept: <%= @concept.anchor_text %></h1>
+
+<%= link_to 'Edit', edit_concept_path(@concept) %>
+
+<ul>
+
+<li> Comment: <%= @concept.comment %>
+</li>
+
+</ul>
+
+<p>
+
+Works:
+
+</p>
+
+<ul>
+
+<% @concept.works.each do |w| %>
+
+<li> <%= link_to w.anchor_text, w %>
+</li>
+
+<% end %>
+
+</ul>
+

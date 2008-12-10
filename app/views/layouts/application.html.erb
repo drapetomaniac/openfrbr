@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>OpenFRBR - <%= @pagetitle %></title>
+  <%= stylesheet_link_tag 'openfrbr' %>
+  <%= javascript_include_tag :defaults %>
+</head>
+<body>
+
+<div class="left">
+
+<p>
+
+<a href="/">OpenFRBR</a>
+
+</p>
+
+<p>
+
+List:
+
+</p>
+
+<ul>
+
+<li> <a href="/works/">works</a> </li>
+<li> <a href="/expressions/">expressions</a> </li>
+<li> <a href="/manifestations/">manifestations</a> </li>
+<li> <a href="/items/">items</a> </li>
+<li> <a href="/people/">people</a> </li>
+<li> <a href="/families/">families</a> </li>
+<li> <a href="/corporate_bodies/">corporate bodies</a> </li>
+<li> <a href="/concepts/">concepts</a> </li>
+<li> <a href="/frbr_objects/">objects</a> </li>
+<li> <a href="/events/">events</a> </li>
+<li> <a href="/places/">places</a> </li>
+
+</ul>
+
+<p>
+
+If you are running this locally, see <a
+href="http://openfrbr.org/">the OpenFRBR site</a>.
+
+</p>
+
+<p>
+
+<a href="/manifesto.html">OpenFRBR Manifesto Number One</a>.
+
+</p>
+
+<p>
+
+<a href="/docs/">Documentation</a> on how to download and install
+OpenFRBR.  (Requires Ruby on Rails.)
+
+</p>
+
+<p>
+
+Contact: <a href="http://www.miskatonic.org/">William Denton</a>
+&lt;<a href="mailto:wtd@pobox.com">wtd@pobox.com</a>&gt;
+
+</p>
+
+</div>
+
+<div class="right">
+
+<p style="color: green"><%= flash[:notice] %></p>
+
+<%= yield  %>
+
+</div>
+
+</body>
+</html>

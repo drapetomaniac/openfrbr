@@ -1,0 +1,31 @@
+<% @pagetitle = "Expressions" %>
+
+<h1>Expressions</h1>
+
+<% for expression in @expressions %>
+
+<div class="indexlist">
+
+<h2> <%= link_to expression.anchor_text, expression %></h2>
+
+<p>
+
+<%= pluralize(expression.manifestations.size, "manifestation") %>.
+
+</p>
+
+
+<p>
+
+Realized by:
+
+</p>
+
+<%= render(:partial => 'layouts/group2entitylist', 
+  :object => expression.realizers) %>
+
+<%= render(:partial => 'attributes', :object => expression) %>
+
+</div>
+
+<% end %>
